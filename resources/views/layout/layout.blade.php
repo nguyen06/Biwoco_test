@@ -13,9 +13,15 @@
 
     <title>Hello, world!</title>
     <style>
+
+        html{
+            font: 400 16px/1.5 Sailec-Regular,system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Helvetica,Arial,sans-serif;
+        }
+
         body{
             font-family: Sailec-Medium,system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Helvetica,Arial,sans-serif;
         }
+
         .logo{
             fill: #0069ff;
         }
@@ -60,7 +66,10 @@
             padding-top: 16px ;
             padding-bottom: 64px !important ;
             text-align: center;
-            color: rgba(3,27,78,.7) !important;
+            /*color: rgba(3,27,78,.7) !important;*/
+        }
+        p a {
+            text-decoration: underline;
         }
 
         .www-Tabs-bricks {
@@ -188,9 +197,6 @@
             color: rgba(3,27,78,.7) !important;
         }
 
-        html{
-            font: 400 16px/1.5 Sailec-Regular,system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Helvetica,Arial,sans-serif;
-        }
         .form-control-1 {
             display: block;
             width: 100%;
