@@ -14,3 +14,15 @@
 Route::get('/', function () {
     return view('app');
 });
+
+Route::get('/support_content', function () {
+    return view('home');
+});
+Route::get('/sale_content', function () {
+    return view('sale');
+});
+Route::get('/report_content', function () {
+    return view('report');
+});
+
+Route::post('/postSubmit',"PostController@store");
