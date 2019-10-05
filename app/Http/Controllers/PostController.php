@@ -8,7 +8,6 @@ use Illuminate\Support\Facades\Storage;
 class PostController extends Controller
 {
     public function store(Request $request){
-        //return($request->all());
        $this->validate($request,[
             'name' => 'required|min:2|max:35',
             'email' => 'required|email',
@@ -23,9 +22,24 @@ class PostController extends Controller
             'subject.min' => ' The subject must be at least 5 characters.',
             'subject.max' => ' The subject may not be greater than 500 characters.',
         ]);
+        try {
+            $Info = Storage::disk('public')->exists('output.json') ? json_decode(Storage::disk('public')->get('output.json')) : [];
 
-        // successfully validation, send it vao file co dinh dang JSON
-        Storage::disk('public')->put('output.json', response()->json($request));
+            $data = $request->only(['name', 'email', 'message','subject']);
+
+            $inputData['datetime_submitted'] = date('Y-m-d H:i:s');
+
+            array_push($Info,$data);
+
+            Storage::disk('public')->put('output.json', json_encode($Info));
+
+            return "success stored";
+
+        } catch(Exception $e) {
+
+            return ['error' => true, 'message' => $e->getMessage()];
+
+        }
 
     }
 }
